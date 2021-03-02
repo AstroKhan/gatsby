@@ -9,6 +9,7 @@ import {
   shouldUpdateScroll,
   init as navigationInit,
   RouteUpdates,
+  encodePathName,
 } from "./navigation"
 import emitter from "./emitter"
 import PageRenderer from "./page-renderer"
@@ -107,7 +108,7 @@ apiRunnerAsync(`onClientEntry`).then(() => {
                     path={
                       pageResources.page.path === `/404.html`
                         ? stripPrefix(location.pathname, __BASE_PATH__)
-                        : encodeURI(
+                        : encodePathName(
                             pageResources.page.matchPath ||
                               pageResources.page.path
                           )

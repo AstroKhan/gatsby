@@ -2,7 +2,7 @@ import React from "react"
 import { Router, Location, BaseContext } from "@reach/router"
 import { ScrollContext } from "gatsby-react-router-scroll"
 
-import { shouldUpdateScroll, RouteUpdates } from "./navigation"
+import { shouldUpdateScroll, RouteUpdates, encodePathName } from "./navigation"
 import { apiRunner } from "./api-runner-browser"
 import loader from "./loader"
 import { PageQueryStore, StaticQueryStore } from "./query-result-store"
@@ -47,7 +47,7 @@ class LocationHandler extends React.Component {
                   id="gatsby-focus-wrapper"
                 >
                   <RouteHandler
-                    path={encodeURI(
+                    path={encodePathName(
                       locationAndPageResources.pageResources.page.matchPath ||
                         locationAndPageResources.pageResources.page.path
                     )}

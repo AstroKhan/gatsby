@@ -268,4 +268,11 @@ RouteUpdates.propTypes = {
   location: PropTypes.object.isRequired,
 }
 
-export { init, shouldUpdateScroll, RouteUpdates }
+function encodePathName(pathname) {
+  return pathname
+    .split(`/`)
+    .map(pathPart => encodeURIComponent(decodeURIComponent(pathPart)))
+    .join(`/`)
+}
+
+export { init, shouldUpdateScroll, RouteUpdates, encodePathName }
